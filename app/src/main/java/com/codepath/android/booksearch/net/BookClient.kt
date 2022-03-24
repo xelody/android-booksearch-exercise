@@ -8,6 +8,10 @@ import java.net.URLEncoder
 class BookClient {
     private val client: AsyncHttpClient = AsyncHttpClient()
 
+    init {
+        client.setTimeout(20) // Increase default timeout
+    }
+
     private fun getApiUrl(relativeUrl: String): String {
         return API_BASE_URL + relativeUrl
     }
